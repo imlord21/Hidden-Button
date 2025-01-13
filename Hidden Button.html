@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hidden Button</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            .buttons-container {
+                margin: 20px;
+            }
+            .message {
+                font-weight: bold;
+                margin-top: 20px;
+            }
+            .button {
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+            }
+            .button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Find the Winning Button!</h1>
+        <div class="buttons-container" id="buttons-container">
+        </div>
+        <div>
+            <input type="number" id="number-of-buttons" placeholder="Enter number of buttons" min="1">
+            <button class="button" onclick="generateButtons()">Generate Buttons</button>
+        </div>
+        <div class="message" id="message"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
