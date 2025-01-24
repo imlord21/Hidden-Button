@@ -1,36 +1,35 @@
-let winningIndex = null;
+const ENOUGH = 100;
 function generateButtons() {
-    const container = document.getElementById("buttons-container");
-    const numberInput = document.getElementById("number-of-buttons");
-    const message = document.getElementById("message");
-    container.innerHTML = "";
-    message.textContent = "";
-    const numberOfButtons = parseInt(numberInput.value, 10);
+    const CONTAINER = document.getElementById("buttons-container");
+    const NUMBER_INPUT = document.getElementById("number-of-buttons");
+    const MESSAGE = document.getElementById("message");
+    CONTAINER.innerHTML = "";
+    MESSAGE.textContent = "";
+    const NUMBER_OF_BUTTONS = parseInt(NUMBER_INPUT.value, 10);
 
-    if (isNaN(numberOfButtons) || numberOfButtons <= 0) {
-        message.textContent = "Please enter a valid number greater than 0!";
+    if (isNaN(NUMBER_OF_BUTTONS) || NUMBER_OF_BUTTONS <= 2 || NUMBER_OF_BUTTONS > ENOUGH) {
+        MESSAGE.textContent = "Please enter a number between 3 or 100!";
         return;
     }
 
-    winningIndex = Math.floor(Math.random() * numberOfButtons);
+    winningIndex = Math.floor(Math.random() * NUMBER_OF_BUTTONS);
 
-    for (let i = 0; i < numberOfButtons; i++) {
-        const button = document.createElement("button");
-        button.textContent = `Button ${i + 1}`;
-        button.className = "button";
-        button.addEventListener("click", () => handleButtonClick(i));
-        container.appendChild(button);
+    for (let i = 0; i < NUMBER_OF_BUTTONS; ++i) {
+        const BUTTON = document.createElement("button");
+        BUTTON.textContent = `Button ${i + 1}`;
+        BUTTON.className = "button";
+        BUTTON.addEventListener("click", () => handleButtonClick(i));
+        CONTAINER.appendChild(BUTTON);
     }
 }
 
 function handleButtonClick(index) {
-    const message = document.getElementById("message");
-
+    const MESSAGE = document.getElementById("message");
     if (index === winningIndex) {
-        message.textContent = `🎉 Congratulations! Button ${index + 1} is the winner! 🎉`;
-        message.style.color = "green";
+        MESSAGE.textContent = `🎉 Congratulations! Button ${++index} is the winner! 🎉`;
+        MESSAGE.style.color = "green";
     } else {
-        message.textContent = `❌ Button ${index + 1} is not the winner. Try again! ❌`;
-        message.style.color = "red";
+        MESSAGE.textContent = `❌ Button ${++index} is not the winner. Try again! ❌`;
+        MESSAGE.style.color = "red";
     }
 }
