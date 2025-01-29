@@ -12,7 +12,7 @@ function generateButtons() {
         return;
     }
 
-    winningIndex = Math.floor(Math.random() * NUMBER_OF_BUTTONS);
+    CONTAINER.dataset.winningIndex = Math.floor(Math.random() * NUMBER_OF_BUTTONS);
 
     for (let i = 0; i < NUMBER_OF_BUTTONS; ++i) {
         const BUTTON = document.createElement("button");
@@ -24,7 +24,9 @@ function generateButtons() {
 }
 
 function handleButtonClick(index) {
+    const CONTAINER = document.getElementById("buttons-container");
     const MESSAGE = document.getElementById("message");
+    const winningIndex = parseInt(CONTAINER.dataset.winningIndex, 10);
     if (index === winningIndex) {
         MESSAGE.textContent = `🎉 Congratulations! Button ${++index} is the winner! 🎉`;
         MESSAGE.style.color = "green";
