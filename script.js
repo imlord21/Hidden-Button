@@ -6,14 +6,11 @@ function generateButtons() {
     CONTAINER.innerHTML = "";
     MESSAGE.textContent = "";
     const NUMBER_OF_BUTTONS = parseInt(NUMBER_INPUT.value, 10);
-
     if (isNaN(NUMBER_OF_BUTTONS) || NUMBER_OF_BUTTONS <= 2 || NUMBER_OF_BUTTONS > ENOUGH) {
         MESSAGE.textContent = "Please enter a number between 3 or 100!";
         return;
     }
-
     CONTAINER.dataset.winningIndex = Math.floor(Math.random() * NUMBER_OF_BUTTONS);
-
     for (let i = 0; i < NUMBER_OF_BUTTONS; ++i) {
         const BUTTON = document.createElement("button");
         BUTTON.textContent = `Button ${i + 1}`;
