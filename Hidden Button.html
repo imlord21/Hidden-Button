@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hidden Button</title>
+        <link rel="stylesheet" href="myButton.css">
+    </head>
+    <body>
+        <h1>Find the Winning Button!</h1>
+        <div class="buttons-container" id="buttons-container">
+        </div>
+        <div>
+            <input type="number" id="number-of-buttons" placeholder="Enter number of buttons" min="1">
+            <button id="myButton" class="button" onclick="generateButtons()">Generate Buttons</button>
+        </div>
+        <div class="message" id="message"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
