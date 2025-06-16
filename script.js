@@ -1,12 +1,12 @@
 function generateButtons() {
-    const ENOUGH = 100;
+    const ENOUGH_BUTTONS = 100;
     const container = document.getElementById("buttons-container");
     const numberInput = document.getElementById("number-of-buttons");
     const message = document.getElementById("message");
     container.innerHTML = "";
     message.textContent = "";
     const numberOfButtons = parseInt(numberInput.value, 10);
-    if (isNaN(numberOfButtons) || numberOfButtons <= 2 || numberOfButtons > ENOUGH) {
+    if (isNaN(numberOfButtons) || numberOfButtons <= 2 || numberOfButtons > ENOUGH_BUTTONS) {
         message.textContent = "Please enter a number between 3 and 100!";
         return;
     }
